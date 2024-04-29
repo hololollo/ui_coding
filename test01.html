@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제목</title>
+    <title>경포동에 오신것을 환영합니다.</title>
     <!--메타포-->
     <!--바로가기 또는 파비콘-->
     <!--오픈그래프-->
@@ -12,121 +12,225 @@
     <!--외부 js 라이브러리 로딩-->
     <style>
         * {padding:0; margin:0;}
-        body { width: 100%; overflow-x:hidden; }
+        body { width: 100%; /*overflow-x:hidden;*/ }
+        ul{list-style: none; }
+        a{text-decoration: none;}
+       
+
         .clr-fix{clear:both;}
         .clr-fix:after{content:""; display:block; width:100%; clear:both;}
-        #hd {clear:both; width:100%; height:120px; position:relative;}
-        .hd_wrap{clear:both; width:1200px; margin: 0 auto;}
+
+        #hd { width:100%; height:800px; position:relative; display:block; background-image:url(./images/header_1.png); background-size: cover; background-position:fixed; }
+        #hd #search{float:right; text-align: center;}
+        .logo_wrap{ clear: both; width:10%; height:50px;}
+        .logo_wrap img{display:block; width:100%;}
+        .hd_wrap{clear:both; width:100%; height: 0; margin: 0 auto; }
+
+        /*메뉴바*/
+        #gnb2 { clear:both; width: 100%; margin-top:10px; position:relative; 
+         z-index:100;}
+
+        #gnb2 .menu {display: block; width:100%; position:absolute;}
+        #gnb2 > .menu > li {float:left;  width:25%; text-align: center; }   
+        #gnb2 a.dp1 { background-color:rgba(12, 6, 6, 0.5); color:#fff; display:block; 
+        line-height: 50px; font-size: 32px;}
+        #gnb2 li:hover a.dp1 { background-color:rgba(107,142,35,0.5); }
+        #gnb2 .sub { display:none; font-size: 24px; line-height:90px;}
+        #gnb2:hover .menu .sub { display:block; }
+        #gnb2 .menu li:hover .sub { background-color: rgba(150, 145, 145, 0.5); }
+        #gnb2 .menu li .sub a:hover{ background-color:rgba(0,191,255, 0.5); display: block;}
+        /*새소식*/
+        /* 배경 */
         
+        .thumb_lst_box{display:inline-block; position: relative; width: 630px; height: 303px; left: 130px; top: 350px; background-color: rgba(62, 86, 61, 0.7);
+                        border-radius: 10px;}
+        .thumb_lst {font-size: 20px; color:#fff; width:1400px;}
+        .thumb_tit {clear:both; margin-left:24px; margin-top:15px; }
+        /* 산불조심 */
+        .thumb_lst .t_item1{ box-sizing:border-box; clear:both; margin-top:25px; margin-left:50px; width: 220px; height: 200px; left: 82px; border-radius: 20px;}
+        /* 착한가게 */
+        .thumb_lst .t_item2{ box-sizing:border-box; display:inline-block; margin-top:10px; margin-left:80px; width: 220px; height: 200px; border-radius: 20px;}
+        .thumb_lst .t_item3{ box-sizing:border-box; display:none; margin-top:10px; margin-left:70px; width: 200px; height: 200px;  border-radius: 20px;}
+        .thumb_lst .t_item4{ box-sizing:border-box; display:none; margin-top:10px; margin-left:70px; width: 200px; height: 200px;  border-radius: 20px;}
+        
+        /*왼쪽 버튼*/
+        .thumb_lst .t_item5 {position:absolute; top: 45%; display:block; border:1px solid; left:-10px; width:50px; height:50px; border-radius: 25px; z-index:101;}    
+        .thumb_lst .t_item5 img{width:25px; margin:0 auto;}
+        /*오른쪽 버튼*/
+        .thumb_lst .t_item6 {position:absolute; top: 45%; display:block; border:1px solid; right:-10px; width:50px; height:50px; border-radius: 25px; z-index:101;}                        
+        .thumb_lst .t_item6 img{width:25px; margin:0 auto;}
+
+        /*날씨*/
+        .weather_lst_box{ display:inline-block; position: relative; width: 300px; height:280px; left: 700px; top: 380px; background-color: rgba(135, 144, 222, 0.7); 
+                            border-radius: 10px; font-size:20px; color:#fff;}
+        .plus_img {float:right;}
+        .weather_img { clear:both; }
+        .weather_img img{display:block; width:50%; padding-left: 24px; float:left; font-size:16px; padding-right: 24px; }
+        .weather_info{display:block; float:right; line-height: 110px; }
+
+        .first_line { clear:both; }
+        .first_line .item_tit { padding-top: 1.5rem; padding-bottom: 0.5rem; padding-left: 1.5rem; float:left; font-size: 24px; }
+        .first_line a { display:block; float:right; margin-top: 24px; margin-right: 24px; }
+
+        
+
+
         #contents{width:100%;}
-        .page{clear:both; width:100%; min-height:60vh;}
+        .page{clear:both; width:100%; height:800px;  background-image:url(./images/page_1.png); background-size: cover; position:relative;}
         .page:after{content:""; display:block; width:100%; clear:both;}
         .page_title{text-align: center; padding-top:2em; padding-bottom:0.5rem;}
         .page_wrap{clear:both; width: 1200px; margin:0 auto;}
+        .lst { list-style: none; width:1280px; margin:20px auto; 
+        display:grid; }
+        .lst li { line-height: 100px; border:5px solid deepskyblue; 
+                    font-size:24px; text-align: center; box-sizing:border-box; }
+         .grid32 { grid-template-columns: auto auto auto auto; }
+         .grid32 .item1 { grid-row-start: span 2;  }
+        
 
         #vs{ clear:both; width:100%; height:280px; overflow:hidden; position:relative;} /* 화면을 키우거나 줄여도 변동사항 없도록 */
         #vs img{ display:block; width:100%; position:absolute; top:50%; margin-top:-160px;}
-
+        
         #ft{width:100%;}
         #ft_wrap{clear:both; width:1200px; margin: 0 auto;}
-        /*
-        ul{list-style: none; }
-        a{text-decoration: none;}
-        .wrap { position:relative; }
-        #gnb2 { clear:both; width: 800px; position:absolute; 
-        left:50%; margin-left: -400px; z-index:100; }
-        #gnb2 > .menu > li {  float:left; width: 25%; text-align: center; }   
-        #gnb2 a.dp1 { background-color:#333; color:#fff; display:block; 
-        line-height: 36px; }
-        #gnb2 li:hover a.dp1 { background-color:deepskyblue; }
-        #gnb2 .sub { display:none; }
-        #gnb2:hover .menu .sub { display:block; }
-        #gnb2 .menu li:hover .sub { background-color:#ccc; }
-        #gnb2 .menu li .sub a:hover{ background-color:violet; display: block;}
-        */
+
     </style>
 
 </head>
 <body>
     <header id="hd" class="clr-fix">
-        <div class="hd_wrap">
-            헤더
-        </div>
-    </header>
+             <div class="logo_wrap">
+                <a href=""><img src="images/logo.jpg" alt="경포동 로고" /></a>
+             </div>
+             <div>
+                <input type="text" size="14" name="search" id="search" placeholder="검색어 입력"><a href=""><button id="search_button">버튼</button></a>
+             </div>
+             <h2 style="text-align:center;"></style>경포동에 오신것을 환영합니다.</h2>
+
+            <div class="hd_wrap">
+                <nav id="gnb2">
+                    <ul class="menu">
+                        <li class="item1">
+                            <a href="" class="dp1">마이페이지</a>
+                            <ul class="sub">
+                                <li><a href="" class="dp2">로그인</a></li>
+                                <li><a href="" class="dp2">회원가입</a></li>
+                                <li><a href="" class="dp2">회원약관</a></li>
+                                <li><a href="" class="dp2">개인정보처리방침</a></li>
+                            </ul>
+                        </li>
+                        <li class="item2">
+                            <a href="" class="dp1">지역소개</a>
+                            <ul class="sub">
+                                <li><a href="" class="dp2">지명유래</a></li>
+                                <li><a href="" class="dp2">지역 특징 및 시설안내</a></li>
+                                <li><a href="" class="dp2">연 혁</a></li>
+                                <li><a href="" class="dp2">오시는 길</a></li>
+                            </ul>
+                        </li>
+                        <li class="item3">
+                            <a href="" class="dp1">이용안내</a>
+                            <ul class="sub">
+                                <li><a href="" class="dp2">교통편 안내</a></li>
+                                <li><a href="" class="dp2">맛 집 안내</a></li>
+                                <li><a href="" class="dp2">숙박시설 안내</a></li>
+                                <li><a href="" class="dp2">볼거리 안내</a></li>
+                            </ul>
+                        </li>
+                        <li class="item4">
+                            <a href="" class="dp1">커뮤니티</a>
+                            <ul class="sub">
+                                <li><a href="" class="dp2">공지사항</a></li>
+                                <li><a href="" class="dp2">자료실</a></li>
+                                <li><a href="" class="dp2">묻고 답하기</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="thumb_lst_box">
+                <!--새소식 케러셀-->
+                <div class="thumb_lst">
+                    <h4 class="thumb_tit">새소식</h4>
+                    <ul >
+                         <li>
+                            <a href=""><img src="./images/watchout.png" alt="산불조심" class="t_item1"></a>
+                            <a href=""><img src="./images/goodplace.png" alt="착한업소" class="t_item2"></a>
+                            <a href=""><img src="https://placehold.it/100x100/333" alt="더미이미지1" class="t_item3"></a>
+                            <a href=""><img src="https://placehold.it/100x100/333" alt="더미이미지2" class="t_item4"></a>
+                        </li>
+                         <li>
+                            <a href=""><button class="t_item5"><img src="./images/leftarrow.png"></button></a>
+                            <a href=""><button class="t_item6"><img src="./images/rightarrow.png"></button></a>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+             <div class="weather_lst_box">
+                    <div class="first_line">
+                        <h4 class="item_tit">기상정보</h4> 
+                        <a href=""><img src="./images/plus.png" alt="더보기" class="plus_img"></a>
+                    </div>
+                    <div class="weather_img">
+                        <img src="./images/sun.png" alt="맑음">
+                        <div class="weather_info">
+                            <span>맑음</span>
+                            <span>23.4°</span>
+                        </div>
+                    </div>
+                </ul>
+             </div>
+        </header>
     <main id="contents" class="clr-fix">
-        <figure id="vs">
-            <img src="https://placehold.it/1920x300" alt="배너">
-        </figure>
         <!--section.page#page*3>h2.page_title{페이지제목$}-->
         <section class="page" id="page">
             <h2 class="page_title">페이지제목1</h2>
             <div class="page_wrap">
-                1페이지 내용
-            </div>
-        </section>
-        <section class="page" id="page">
-            <h2 class="page_title">페이지제목2</h2>
-            <div class="page_wrap">
-                2페이지 내용
-            </div>
-        </section>
-        <section class="page" id="page">
-            <h2 class="page_title">페이지제목3</h2>
-            <div class="page_wrap">
-                3페이지 내용
+                <div class="wrap">
+                    <h2 class="title">2. grid-row-start: span 2;</h2>
+                    <p class="comment">항목이 시작될 행을 정의하며, span 2는 두 번째 줄까지 합치기를 의미합니다.</p>
+                    <ul class="lst grid32">
+                        <li class="box item1">1</li>
+                        <li class="box item2">2</li>
+                        <li class="box item3">3</li>
+                        <li class="box item4">4</li>
+                        <li class="box item5">5</li>
+                        <li class="box item6">6</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
     <footer id="ft" class="clr-fix">
         <div class="ft_wrap">푸터</div>
+            <nav id="fnb">
+                <ul>
+                    <li><a href="${hpath }/member/terms.jsp">회원약관</a></li>
+                    <li><a href="${hpath }/member/policy.jsp">개인정보처리방침</a></li>
+                </ul>
+            </nav>
+            <div id="loc">
+                <select name="sel" id="sel" onchange="locate()">
+                    <option value="">해당 관광서</option>
+                    <option value="https://www.gn.go.kr/www/index.do">강릉시청</option>
+                    <option value="https://www.gwpolice.go.kr/gn/sub05/sub05_01_05.jsp">강릉경찰서</option>
+                    <option value="https://www.koreapost.go.kr/210/index.do">강릉우체국</option>
+                </select>
+            </div>
+            <script>
+            function locate(){
+                var sel = document.getElementById("sel");
+                if(sel.value!=""){
+                    window.open(sel.value);
+                }
+            }
+            </script>
+            <br><br>
+            <div id="copyright">
+                <p class="addr">(우)[25522] 강원특별자치도 강릉시 강릉대로 33 (홍제동) 대표전화(강릉시 민원콜센터) 033-660-2018</p>
+                <p class="copy">COPYRIGHT(C) GANGREUNG-SI. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div> 
     </footer>
-    <!-- <nav a href="img1.jpg"></nav>
-    <h2 class="title">wpahr</h2>
-    <div class="wrap clr-fix">
-        <nav id="gnb2" class="clr-fix">
-            <ul class="menu clr-fix">
-                <li class="item1">
-                    <a href="" class="dp1">메인1</a>
-                    <ul class="sub">
-                        <li><a href="" class="dp2">서브01</a></li>
-                        <li><a href="" class="dp2">서브02</a></li>
-                        <li><a href="" class="dp2">서브03</a></li>
-                        <li><a href="" class="dp2">서브04</a></li>
-                        <li><a href="" class="dp2">서브05</a></li>
-                    </ul>
-                </li>
-                <li class="item2">
-                    <a href="" class="dp1">메인2</a>
-                    <ul class="sub">
-                        <li><a href="" class="dp2">서브01</a></li>
-                        <li><a href="" class="dp2">서브02</a></li>
-                        <li><a href="" class="dp2">서브03</a></li>
-                        <li><a href="" class="dp2">서브04</a></li>
-                        <li><a href="" class="dp2">서브05</a></li>
-                    </ul>
-                </li>
-                <li class="item3">
-                    <a href="" class="dp1">메인3</a>
-                    <ul class="sub">
-                        <li><a href="" class="dp2">서브01</a></li>
-                        <li><a href="" class="dp2">서브02</a></li>
-                        <li><a href="" class="dp2">서브03</a></li>
-                        <li><a href="" class="dp2">서브04</a></li>
-                        <li><a href="" class="dp2">서브05</a></li>
-                    </ul>
-                </li>
-                <li class="item4">
-                    <a href="" class="dp1">메인4</a>
-                    <ul class="sub">
-                        <li><a href="" class="dp2">서브01</a></li>
-                        <li><a href="" class="dp2">서브02</a></li>
-                        <li><a href="" class="dp2">서브03</a></li>
-                        <li><a href="" class="dp2">서브04</a></li>
-                        <li><a href="" class="dp2">서브05</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div> -->
 </body>
 </html>

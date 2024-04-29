@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom객체의 제어</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{width:100%; overflow-x: hidden; color:#333;}
+        .title{ padding-top: 2rem; text-align: center; padding-bottom:0.5em;}
+        .table{ width: 900px; margin:0 auto;}
+        #btn1, #imgFile{display:block;width:150px; text-align:center; line-height: 30px; margin: 8px auto;
+        clear:both; font-size:16px; font-weight:bold;}
+        .wrap{clear:both; width:100%; height:auto; min-height:100x; margin-top:50px; display:block; display:flex; justify-content: center; align-items:center;}
+        #result{width:200px; height:200px; background-color: yellow; border:1px solid #333; color:red; display:flex; justify-content:center; align-items: center;}
+        /*align-items : 세로축 - 교차축 / 높이*/
+        /*justify-content : center => 가로축 - 중심축 / row(가로 배치)일때는 가운데로*/
+    </style>
+</head>
+<body>
+    <h1>dom객체의 제어</h1>
+    <hr>
+    <form name="ui">
+        <table class="table" cellspacing="25">
+            <tbody>
+                <tr>
+                    <th>너비 : </th>
+                    <td><input type="text" size="10" name="w" id="w" value="">px</td>
+                    <th>높이 : </th>
+                    <td><input type="text" size="10" name="h" id="h" value="">px</td>
+                </tr>
+                <tr>
+                    <th>글자 크기 : </th>
+                    <td><input type="text" size="10" name="font_size" id="font_size" value="">px</td>
+                    <th>굵기 : </th>
+                    <td>
+                        보통<input type="radio" name="font_weight" id="font_weight" value="narmal">&nbsp;&nbsp;
+                        굵게<input type="radio" name="font_weight" id="font_weight" value="bold">
+                    </td>
+                </tr>
+                <tr>
+                    <th>글자색 : </th>
+                    <td><input type="text" size="9" name="color" id="color" value="red"></td>
+                    <th>배경색 : </th>
+                    <td><input type="text" size="9" name="bg_color" id="bg_color" value="yellow"></td>
+                </tr>
+                <tr>
+                    <th>가로정렬 : </th>
+                    <!--<td cellspans="3">-->
+                    <td>
+                    왼쪽<input type="radio" name="h_align" id="h_align1" value="left">
+                    가운데<input type="radio" name="h_align" id="h_align2" value="center">
+                    오른쪽<input type="radio" name="h_align" id="h_align3" value="right" checked>
+                    </td>
+                </tr>
+                <tr>
+                    <th>세로정렬 : </th>
+                    <!--<td colspan="3">-->
+                        <td>
+                        위 
+                        <input type="radio" name="v_align" id="v_align1" value="flex-start"> &nbsp; &nbsp;
+                        가운데 
+                        <input type="radio" name="v_align" id="v_align2" value="center" checked> &nbsp; &nbsp;
+                        아래 
+                        <input type="radio" name="v_align" id="v_align3" value="flex-end">
+                    </td>            
+                </tr>
+                <tr>
+                    <th>출력 문자열 : </th>
+                    <td colspan="3">
+                        <input type="text" size="" maxlength="40" name="txt" id="txt" value="Hello World">
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td colspan="4">--> <td><button type="button" id="btn1">적용하기</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <div class="wrap" id="canvas">
+        <div id="result">
+            Hello World
+        </div>
+    </div>
+    <script>
+        var txt = document.getElementById("txt")
+        var result = document.getElementById("result")
+        function fnc1() {
+            result.style.width = document.getElementById("w").value + "px";
+            result.style.height = document.getElementById("h").value + "px";
+            result.style.fontSize = document.getElementById("font_size").value+"px";
+            result.style.fontWeight = document.ui.font_weight.value;
+            result.style.color = document.getElementById("color").value;
+            result.style.backgroundColor = document.getElementById("bg_color").value;
+            result.style.justifyContent = document.ui.h_align.value;
+            result.style.alignItems = document.ui.v_align.value;
+            result.innerHTML = txt.value;
+        }
+        document.getElementById("btn1").addEventListener("click", function() { fnc1(); }); 
+    </script>
+
+    <div class="btn_wrap">
+    <button id="imgFile">이미지로 저장</button>
+
+</div>
+</body>
+</html>
