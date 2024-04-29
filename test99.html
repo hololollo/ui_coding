@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {padding:0; margin:0;}
+        body { width: 100%; overflow-x:hidden; }
+        .clr-fix{clear:both;}
+        .clr-fix:after{content:""; display:block; width:100%; clear:both;}
+        #hd {clear:both; width:100%; height:120px; position:relative;}
+        #hd img{ display:block; width:100%; position:absolute;}
+        .hd_wrap{clear:both; width:1200px; margin: 0 auto; position: relative;}
+        .hd_wrap h2.title { margin-left: 120px; } /* Adjust margin-left to create space for logo */
+        .hd_wrap nav#gnb2 { margin-top: 80px; } /* Adjust margin-top to create space for menu */
+        .hd_wrap nav#gnb2 > .menu > li {  float:left; width: 25%; text-align: center; }   
+        /* Remaining CSS remains unchanged */
+    </style>
+</head>
+<body>
+    <header id="hd" class="clr-fix">
+        <img src="img1.jpg" alt="이미지">
+            <div class="hd_wrap">
+                <img src="logo.jpg" alt="로고" class="logo">
+                    <h2 class="title"></h2>
+                        <div class="wrap clr-fix">
+                            <nav id="gnb2" class="clr-fix">
+                                <!-- Remaining HTML content remains unchanged -->
+                            </nav>
+                        </div>
+            </div>
+    </header>
+</body>
+</html>
