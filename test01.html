@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>경포동에 오신것을 환영합니다.</title>
+    <title class="title">경포동에 오신것을 환영합니다.</title>
     <!--메타포-->
     <!--바로가기 또는 파비콘-->
     <!--오픈그래프-->
@@ -12,7 +12,7 @@
     <!--외부 js 라이브러리 로딩-->
     <style>
         * {padding:0; margin:0;}
-        body { width: 100%; /*overflow-x:hidden;*/ }
+        body { width: 100%; overflow-x:hidden; }
         ul{list-style: none; }
         a{text-decoration: none;}
        
@@ -20,14 +20,17 @@
         .clr-fix{clear:both;}
         .clr-fix:after{content:""; display:block; width:100%; clear:both;}
 
-        #hd { width:100%; height:800px; position:relative; display:block; background-image:url(./images/header_1.png); background-size: cover; background-position:fixed; }
-        #hd #search{float:right; text-align: center;}
+        #hd { width:100%; height:600px; position:relative; display:block; background-image:url(./images/header_1.png); background-size: cover; }
+        #container {float:right; width: 300px; height: 30px; position: relative; display: flex;}
+        #container input{ width: 100%; border-radius: 15px; padding-left:5px; text-align:center; }
+        #container button{ position: absolute; top: 5px; bottom: 5px; right: 6px;  border:1px solid; border-radius: 15px;}
+
         .logo_wrap{ clear: both; width:10%; height:50px;}
         .logo_wrap img{display:block; width:100%;}
         .hd_wrap{clear:both; width:100%; height: 0; margin: 0 auto; }
 
         /*메뉴바*/
-        #gnb2 { clear:both; width: 100%; margin-top:10px; position:relative; 
+        #gnb2 { clear:both; width: 100%; position:relative; 
          z-index:100;}
 
         #gnb2 .menu {display: block; width:100%; position:absolute;}
@@ -35,21 +38,36 @@
         #gnb2 a.dp1 { background-color:rgba(12, 6, 6, 0.5); color:#fff; display:block; 
         line-height: 50px; font-size: 32px;}
         #gnb2 li:hover a.dp1 { background-color:rgba(107,142,35,0.5); }
-        #gnb2 .sub { display:none; font-size: 24px; line-height:90px;}
+        #gnb2 .sub { display:none; font-size: 24px; line-height:90px; }
         #gnb2:hover .menu .sub { display:block; }
         #gnb2 .menu li:hover .sub { background-color: rgba(150, 145, 145, 0.5); }
-        #gnb2 .menu li .sub a:hover{ background-color:rgba(0,191,255, 0.5); display: block;}
+        #gnb2 .menu li .sub a:hover{ background-color:rgba(107,142,35,0.9);  display: block;}
+
+        /* 퀵 메뉴 */
+        #quick { width:180px; height:220px; position:fixed;
+        right:50px; top:400px; z-index:9999; 
+        background-color:rgba(97, 92, 89, 0.9); border-radius:24px 24px 0px 0px; 
+        text-align: center; }    
+        #quick:before { content:"Quick"; display:block; width: 100%; 
+        font-size:32px; line-height: 60px; border-bottom:2px solid #ececec; } 
+        .quick { clear:both; }
+        .quick li { line-height: 50px; border-top:1px solid rgba(97, 92, 89, 0.8);
+            border-bottom:1px solid #999;  }
+        .quick li:hover{background-color: rgba(107,142,35,0.5);}
+        .quick li a { color:#333; font-weight: bold;  }    
+    
+
         /*새소식*/
         /* 배경 */
-        
-        .thumb_lst_box{display:inline-block; position: relative; width: 630px; height: 303px; left: 130px; top: 350px; background-color: rgba(62, 86, 61, 0.7);
+        .thumb_lst_box{display:block; position: relative; width: 800px; height: 400px; left: 160px; top: 250px; background-color: rgba(62, 86, 61, 0.7);
                         border-radius: 10px;}
-        .thumb_lst {font-size: 20px; color:#fff; width:1400px;}
-        .thumb_tit {clear:both; margin-left:24px; margin-top:15px; }
+        .thumb_lst { font-size: 25px; padding-top:3px; color:#fff; }
+        .thumb_tit { clear:both; margin-left:50px; margin-top:20px; }
         /* 산불조심 */
-        .thumb_lst .t_item1{ box-sizing:border-box; clear:both; margin-top:25px; margin-left:50px; width: 220px; height: 200px; left: 82px; border-radius: 20px;}
+        .thumb_lst .t_item1{ box-sizing:border-box; clear:both; margin-top:25px; margin-left:90px; width: 280px; height: 280px; border-radius: 20px;}
         /* 착한가게 */
-        .thumb_lst .t_item2{ box-sizing:border-box; display:inline-block; margin-top:10px; margin-left:80px; width: 220px; height: 200px; border-radius: 20px;}
+        .thumb_lst .t_item2{ box-sizing:border-box; display:inline-block; margin-top:10px; margin-left:40px; margin-right:80px; width: 280px; height: 280px; border-radius: 20px;}
+        /*더미 이미지*/
         .thumb_lst .t_item3{ box-sizing:border-box; display:none; margin-top:10px; margin-left:70px; width: 200px; height: 200px;  border-radius: 20px;}
         .thumb_lst .t_item4{ box-sizing:border-box; display:none; margin-top:10px; margin-left:70px; width: 200px; height: 200px;  border-radius: 20px;}
         
@@ -61,20 +79,18 @@
         .thumb_lst .t_item6 img{width:25px; margin:0 auto;}
 
         /*날씨*/
-        .weather_lst_box{ display:inline-block; position: relative; width: 300px; height:280px; left: 700px; top: 380px; background-color: rgba(135, 144, 222, 0.7); 
+        .weather_lst_box{ display:block; width: 350px; height:280px; margin-left:1200px; margin-top: -50px; background-color: rgba(135, 144, 222, 0.7); 
                             border-radius: 10px; font-size:20px; color:#fff;}
-        .plus_img {float:right;}
-        .weather_img { clear:both; }
-        .weather_img img{display:block; width:50%; padding-left: 24px; float:left; font-size:16px; padding-right: 24px; }
-        .weather_info{display:block; float:right; line-height: 110px; }
-
         .first_line { clear:both; }
         .first_line .item_tit { padding-top: 1.5rem; padding-bottom: 0.5rem; padding-left: 1.5rem; float:left; font-size: 24px; }
         .first_line a { display:block; float:right; margin-top: 24px; margin-right: 24px; }
-
+        .plus_img {float:right;}
+        .weather_img { clear:both; }
+        .weather_img img{display:block; width:50%; padding-left: 24px; float:left; padding-right: 24px; }
+        .weather_info{display:block; float:right; }
+        .weather_info span{display:block; margin-top:50px; line-height: 15px; margin-right:50px;}
         
-
-
+        /*페이지1*/
         #contents{width:100%;}
         .page{clear:both; width:100%; height:800px;  background-image:url(./images/page_1.png); background-size: cover; position:relative;}
         .page:after{content:""; display:block; width:100%; clear:both;}
@@ -83,7 +99,7 @@
         .lst { list-style: none; width:1280px; margin:20px auto; 
         display:grid; }
         .lst li { line-height: 100px; border:5px solid deepskyblue; 
-                    font-size:24px; text-align: center; box-sizing:border-box; }
+                 text-align: center; box-sizing:border-box; }
          .grid32 { grid-template-columns: auto auto auto auto; }
          .grid32 .item1 { grid-row-start: span 2;  }
         
@@ -102,8 +118,9 @@
              <div class="logo_wrap">
                 <a href=""><img src="images/logo.jpg" alt="경포동 로고" /></a>
              </div>
-             <div>
-                <input type="text" size="14" name="search" id="search" placeholder="검색어 입력"><a href=""><button id="search_button">버튼</button></a>
+             <div id="container">
+                <input type="text" size="14" name="search" id="search" placeholder="검색어 입력">
+                <a href=""><button id="search_button">🔍</button></a>
              </div>
              <h2 style="text-align:center;"></style>경포동에 오신것을 환영합니다.</h2>
 
@@ -148,6 +165,16 @@
                     </ul>
                 </nav>
             </div>
+            <div class="blank"></div>
+            <div class="quick_fr">
+                <nav id="quick">
+                    <ul class="quick">
+                        <li><a href="">퀵메뉴1</a></li>
+                        <li><a href="">퀵메뉴2</a></li>
+                        <li><a href="">퀵메뉴3</a></li>
+                    </ul>
+                </nav>
+            </div>
             <div class="thumb_lst_box">
                 <!--새소식 케러셀-->
                 <div class="thumb_lst">
@@ -186,7 +213,6 @@
         <section class="page" id="page">
             <h2 class="page_title">페이지제목1</h2>
             <div class="page_wrap">
-                <div class="wrap">
                     <h2 class="title">2. grid-row-start: span 2;</h2>
                     <p class="comment">항목이 시작될 행을 정의하며, span 2는 두 번째 줄까지 합치기를 의미합니다.</p>
                     <ul class="lst grid32">
@@ -195,10 +221,8 @@
                         <li class="box item3">3</li>
                         <li class="box item4">4</li>
                         <li class="box item5">5</li>
-                        <li class="box item6">6</li>
                     </ul>
                 </div>
-            </div>
         </section>
     </main>
     <footer id="ft" class="clr-fix">
@@ -232,5 +256,9 @@
             </div>
         </div> 
     </footer>
+
+    <script>
+
+    </script>
 </body>
 </html>
