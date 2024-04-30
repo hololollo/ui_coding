@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom객체</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{width:100%; overflow-x:hidden; color:#000;}
+        .title{padding-top:2rem; padding-bottom:0.5rem; text-align: center;}
+        .table{width:960px; margin:10px auto;}
+        #btn1{clear:both; display:block; width:150px; line-height: 36px; margin:8px auto;  font-size:16px; font-weight:bold;  text-align: center;}
+        .wrap{ clear:both; width:100%; height:auto; min-height:100px; margin-top: 30px; 
+            display:flex; justify-content: center; align-items: center;}
+        #result{width:200px; height:400px; 
+            background-color: yellow; border:3px solid #333; display:flex; justify-content: center; align-items: center; 
+            color:red; font-size:16px; font-weight:bold; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2 class="title">DOM객체</h2>
+    <hr>
+    <form name="ui">
+    <table class="table" cellspacing="25">
+        <tbody>
+            <tr>
+                <th>너비 : </th>
+                <td><input type="text" name="w" id="w" value="">px</td>
+                <th>높이 : </th>
+                <td><input type="text" name="h" id="h" value="">px</td>
+            </tr>
+            <tr>
+                <th>글자크기 : </th>
+                <td><input type="text" name="font_size" id="font_size" value="">px</td>
+                <th>굵기 : </th>
+                <td>
+                    보통 <input type="radio" name="font_weight" id="font_weight1" value="normal">
+                    굵게 <input type="radio" name="font_weight" id="font_weight2" value="bold" checked>
+                </td>
+            </tr>
+            <tr>
+                <th>출력 문자열 : </th>
+                <td><input type="text" size="45" maxlength="40" name="txt" id="txt" value="Hello world">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button type="button" id="btn1">적용하기</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+    <div class="wrap" id="canvas">
+        <div id="result">
+            Hello world
+        </div>
+    </div>
+
+    <script>
+        var txt = document.getElementById("txt")
+        var result = document.getElementById("result")
+
+        function fnc1() {
+            result.innerHTML = txt.value;
+            result.style.width = document.getElementById("w").value + "px";
+            result.style.height = document.getElementById("h").value + "px";
+            result.style.fontSize = document.getElementById("font_size").value + "px";
+            result.style.fontWeight = document.ui.font_weight.value;
+        }
+        document.getElementById("btn1").addEventListener("click", function() {fnc1();});
+    </script>
+</body>
+</html>

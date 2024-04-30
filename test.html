@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험-강범준</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{width:100%; overflow-x: hidden; color:rgb(138, 56, 56);}
+        .table{width: 1000px; margin:10px auto; background-color: burlywood; border-radius: 44px; font-size:15px; box-shadow: 0px 2px 0px 2px;}
+        #btn1{ clear:both; display:block; width:100px; line-height: 50px;  margin:8px auto;
+            font-size:18px; text-align: center; font-weight: bold; color:rgb(110, 32, 32); border:2px solid rgb(110, 32, 32); border-radius: 44px;;}
+        #btn1:hover {background-color: darkolivegreen; box-shadow: 0px 2px 0px 0px;}    
+        .wrap{clear:both; width: 100%; height:auto; min-height: 100px; margin-top: 30px;
+            display:flex; justify-content: center; align-items: center;}
+        #result{width:200px; height:400px; border:3px solid #333; border-radius: 50px; background-color: palevioletred; color:mediumseagreen;
+        text-align: center; font-size:20px; font-weight: bold; display: flex; justify-content: center; align-items: center;
+        padding:30px;}
+
+        input[type=text] {text-align: center; margin-right:4px; color:rgb(110, 32, 32); width: 160px; height:25px; border:1px solid; border-radius: 20px; font-size:15px; }
+        input[type=text]:hover { box-shadow: 0px 2px 0px 0px; }
+        input[type="radio"] { margin-left:3px; appearance: none; width: 15px; height: 15px; border: 1px solid rgb(110, 32, 32); border-radius: 50%;}
+        input[type="radio"]:checked { background-color: rgb(22, 85, 22);}
+        input[type=radio]:hover { box-shadow: 0px 2px 0px 0px darkolivegreen;}
+    </style>
+</head>
+<body>
+    <form name="ui">
+        <table class="table" cellspacing="20">
+            <tbody>
+                <tr>
+                    <th>너비 : </th>
+                    <td><input type="text" name="w" id="w" value="">px</td>
+                    <th>높이 : </th>
+                    <td><input type="text" name="h" id="h" value="">px</td>
+                </tr>
+                <tr>
+                    <th>글자크기 : </th>
+                    <td><input type="text" name="font_size" id="font_size" value="">px</td>
+                    <th>굵기 : </th>
+                    <td>
+                        보통<input type="radio" name="font_weight" id="font_weight1" value="normal"> &nbsp; &nbsp; &nbsp;
+                        굵게<input type="radio" name="font_weight" id="font_weight2" value="bold">
+                    </td>
+                </tr>
+                <tr>
+                    <th>글자 색 : </th>
+                    <td><input type="text" name="color" id="color" value=""></td>
+                    <th>배경 색 : </th>
+                    <td><input type="text" name="bg_color" id="bg_color" value=""></td>
+                </tr>
+                <tr>
+                    <th>가로정렬 : </th>
+                    <td colspan="3">
+                        왼쪽<input type="radio" name="h_align" id="h_align1" value="left">&nbsp;
+                        가운데<input type="radio" name="h_align" id="h_align2" value="center">&nbsp;
+                        오른쪽<input type="radio" name="h_align" id="h_align3" value="right">
+                    </td>
+                </tr>
+                <tr>
+                    <th>세로정렬 : </th>
+                    <td colspan="3">
+                        위<input type="radio" name="v_align" id="v_align1" value="flex-start">&nbsp;
+                        가운데<input type="radio" name="v_align" id="v_align2" value="center">&nbsp;
+                        아래<input type="radio" name="v_align" id="v_align3" value="flex-end">
+                    </td>
+                </tr>
+                <tr>
+                    <th>출력 문자열 : </th>
+                    <td colspan="3">
+                        <input type="text" size="80" maxlength="45" name="txt" id="txt" value="good">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"><button type="button" id="btn1">적용하기</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <div class="wrap" id="canvas">
+        <div id="result">
+            good
+        </div>
+    </div>
+
+    <script>
+        var txt = document.getElementById("txt");
+        var result = document.getElementById("result");
+        function fnc1(){
+            txt.innerHTML = txt.value;
+            result.style.width = document.getElementById("w").value + "px";
+            result.style.height = document.getElementById("h").value + "px";
+            result.style.fontSize = document.getElementById("font_size").value + "px";
+            result.style.fontWeight = document.ui.font_weight.value;
+            result.style.color = document.getElementById("color").value;
+            result.style.backgroundColor = document.getElementById("bg_color").value;
+            result.style.justifyContent = document.ui.h_align.value;
+            result.style.alignItems = document.ui.v_align.value;
+        }
+        document.getElementById("btn1").addEventListener("click", function() {fnc1(); });
+    </script>
+
+</body>
+</html>
