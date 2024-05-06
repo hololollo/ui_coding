@@ -1,0 +1,76 @@
+* {
+  margin:0; 
+  padding:0; 
+  box-sizing: border-box;
+}
+
+body {
+  display:flex;
+  align-items:center;
+  justify-content: center; 
+  min-height: 100vh;
+  background: #fff ;
+}
+
+.container{
+  width:1200px;
+  background-color: #444;
+}
+
+.slider-wrap {
+  width:90%;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+}
+
+.slider-wrap .slide-button {
+  position:absolute;
+  top:50%;
+  height: 50px;
+  width: 50px;
+  color:#fff;
+  background: rgba(169, 169, 169, 0.5);
+  font-size:2.2rem;
+  cursor:pointer;
+  border:none;
+  outline:none;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-wrap .slide-button:hover {
+  background:#444;
+}
+
+.slider-wrap .slide-button#prev-slide {
+  z-index: 999;
+  left: 0px;
+}
+
+.slider-wrap .slide-button#next-slide {
+  z-index: 999;
+  right: 0px;
+}
+
+.slider-wrap .img-list {
+  width:100%;
+  margin-top:15px;
+  margin-bottom:15px;
+  display:flex;
+  gap: 10px;
+  font-size:0;
+  transition: transform 0.5s ease;
+  scrollbar-width: none;
+}
+
+/*전체 스크롤바 안보임처리. 방향키로 이동가능.*/
+.slider-wrap .img-list::-webkit-scrollbar {
+  display:none;
+}
+
+.slider-wrap .img-list .img-item {
+  width:350px;
+  height:400px;
+  object-fit: cover;
+}

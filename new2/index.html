@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Responsive Slider To Your Blogger Website</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>-->
+    <link rel="stylesheet" href="style.css" />
+ 
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide card">
+          <div class="thumbnail">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHaQdd9mUANh7_JhLInDbMAf0HTWxUBHq5Jc8kM5wyykiDPaIle9-X-cjbV_IH1NyYOcAa1zzTMO1sKt_4uyOSxXgxHDXx5kbo4mnhtLcu0zNiOENr-csyKf8i8ouO8_LsDrhF6h178kUQFlfXct11KfNgfEGUPYCPXOlZ0766t1Ly8tqR6aVPROTW/s1600/img_avatar-removebg-preview%20%281%29.png" alt="" />
+          </div>
+
+          <a href="#" class="title-container">
+            <h3>Post 1 Title</h3>
+          </a>
+
+          <div class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+            libero.
+          </div>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="thumbnail">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHaQdd9mUANh7_JhLInDbMAf0HTWxUBHq5Jc8kM5wyykiDPaIle9-X-cjbV_IH1NyYOcAa1zzTMO1sKt_4uyOSxXgxHDXx5kbo4mnhtLcu0zNiOENr-csyKf8i8ouO8_LsDrhF6h178kUQFlfXct11KfNgfEGUPYCPXOlZ0766t1Ly8tqR6aVPROTW/s1600/img_avatar-removebg-preview%20%281%29.png" alt="" />
+          </div>
+
+          <a href="#" class="title-container">
+            <h3>Post 2 Title</h3>
+          </a>
+
+          <div class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+            libero.
+          </div>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="thumbnail">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHaQdd9mUANh7_JhLInDbMAf0HTWxUBHq5Jc8kM5wyykiDPaIle9-X-cjbV_IH1NyYOcAa1zzTMO1sKt_4uyOSxXgxHDXx5kbo4mnhtLcu0zNiOENr-csyKf8i8ouO8_LsDrhF6h178kUQFlfXct11KfNgfEGUPYCPXOlZ0766t1Ly8tqR6aVPROTW/s1600/img_avatar-removebg-preview%20%281%29.png" alt="" />
+          </div>
+
+          <a href="#" class="title-container">
+            <h3>Post 3 Title</h3>
+          </a>
+
+          <div class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+            libero.
+          </div>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="thumbnail">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHaQdd9mUANh7_JhLInDbMAf0HTWxUBHq5Jc8kM5wyykiDPaIle9-X-cjbV_IH1NyYOcAa1zzTMO1sKt_4uyOSxXgxHDXx5kbo4mnhtLcu0zNiOENr-csyKf8i8ouO8_LsDrhF6h178kUQFlfXct11KfNgfEGUPYCPXOlZ0766t1Ly8tqR6aVPROTW/s1600/img_avatar-removebg-preview%20%281%29.png" alt="" />
+          </div>
+
+          <a href="#" class="title-container">
+            <h3>Post 4 Title</h3>
+          </a>
+
+          <div class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+            libero.
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+      let swiper = new Swiper(".swiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          600: {
+            slidesPerView: 2,
+          },
+        },
+      });
+    </script>
+<!-- partial -->
+  
+</body>
+</html>
